@@ -41,7 +41,7 @@ select * from course_teacher ct where teacher_id = 44
 select s.name, s.surname, d.name as Corso, d2.name as Dipartimento from students s inner join `degrees` d ON s.degree_id = d.id inner join departments d2 on d.department_id = d2.id;
 
 -- BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
-select  s.id, s.surname, s.name, count(es.exam_id) as esami_svolti from exam_student es 
+select s.surname, s.name, count(es.exam_id) as esami_svolti from exam_student es 
 inner join students s ON es.student_id = s.id
 inner join exams e ON es.exam_id = e.id
 group by es.exam_id order by s.surname, s.name;
